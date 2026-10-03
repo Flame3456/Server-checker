@@ -1,0 +1,31 @@
+{
+  "name": "server-checker",
+  "version": "1.0.0",
+  "description": "Server Checker — локальная проверка Windows на следы чит-клиентов Minecraft",
+  "main": "main.js",
+  "author": "AXOLAND",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "electron .",
+    "build:win": "electron-builder --win portable",
+    "build:win:zip": "electron-builder --win zip"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.serverchecker.app",
+    "productName": "Server Checker",
+    "win": {
+      "icon": "icon.png",
+      "target": "portable"
+    },
+    "extraResources": [
+      {
+        "from": "icon.png",
+        "to": "icon.png"
+      }
+    ]
+  }
+}

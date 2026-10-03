@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self';" />
+  <title>Server Checker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grid-overlay"></div>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">SERVER</span>
+        <span class="brand-sub">Checker</span>
+      </div>
+      <div class="admin-pill" id="adminPill">проверка прав…</div>
+    </header>
+
+    <main class="content">
+      <section class="intro">
+        <h1>Проверка на читы</h1>
+        <p>Полный скан компьютера на следы чит-клиентов для Minecraft — один клик.</p>
+        <button id="openConfirmBtn" class="scan-btn">Начать проверку</button>
+      </section>
+
+      <section class="log-section" id="logSection" hidden>
+        <div class="scan-status" id="scanStatus">
+          <span class="scan-pulse"></span>
+          <span id="scanStatusText">Идёт проверка…</span>
+        </div>
+        <div class="log-console" id="logConsole"></div>
+      </section>
+
+      <section class="report-section" id="reportSection" hidden>
+        <div class="verdict-banner" id="verdictBanner">
+          <div class="verdict-top">
+            <div>
+              <div class="verdict-title" id="verdictTitle"></div>
+              <div class="verdict-text" id="verdictText"></div>
+            </div>
+            <div class="verdict-score" id="verdictScore">0</div>
+          </div>
+          <div class="verdict-bar">
+            <div class="verdict-bar-fill" id="verdictBarFill"></div>
+          </div>
+        </div>
+
+        <div class="scanners-summary" id="scannersSummary"></div>
+
+        <h2 class="findings-heading" id="findingsHeading" hidden>Что именно найдено</h2>
+        <div class="findings-list" id="findingsList"></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-overlay" id="confirmOverlay" hidden>
+    <div class="modal">
+      <div class="modal-logo">SERVER CHECKER</div>
+      <h2 class="modal-title">Вас вызвали на проверку</h2>
+      <p class="modal-text">
+        Перед началом проверки подтвердите, что вы ознакомились и согласны с
+        <a id="privacyLink" class="privacy-link" href="https://check.piglax.ru">политикой конфиденциальности Server Checker</a>.
+      </p>
+      <p class="modal-official">Проверка запускается только после вашего подтверждения и выполняется локально.</p>
+
+      <div class="modal-actions">
+        <button id="cancelConfirmBtn" class="btn-secondary">Отмена</button>
+        <button id="confirmStartBtn" class="btn-primary">Согласен с политикой и начать</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
